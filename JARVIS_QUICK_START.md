@@ -1,0 +1,543 @@
+# JARVIS AI Assistant - Quick Start Guide
+
+ 
+
+## What You Have
+
+ 
+
+A complete memory-powered AI assistant with:
+
+- ✅ Episodic & Semantic Memory System
+
+- ✅ Security Layer (command execution with approval)
+
+- ✅ Ollama Integration (Privacy Mode with Gemma 2B)
+
+- ✅ Claude API Integration (Normal Mode)
+
+- ✅ FastAPI Web Application
+
+- ✅ Voice Command Interface
+
+- ✅ Emergency Mode Specifications
+
+ 
+
+## Files Included
+
+ 
+
+### Core Application
+
+- `web_app.py` - FastAPI backend server
+
+- `requirements.txt` - Python dependencies
+
+ 
+
+### JARVIS Modules
+
+```
+
+jarvis/
+
+├── memory/              # Memory system
+
+│   ├── episodic.py     # Episode storage
+
+│   ├── semantic.py     # Pattern extraction
+
+│   ├── retrieval.py    # Context synthesis
+
+│   └── models.py       # Data models
+
+├── security/           # Command execution security
+
+│   ├── analyzer.py     # Threat detection
+
+│   ├── approval.py     # Approval workflow
+
+│   ├── sandbox.py      # Safe execution
+
+│   └── executor.py     # Orchestration
+
+├── llm/                # LLM providers
+
+│   └── providers.py    # Claude + Ollama support
+
+├── storage/            # Database
+
+│   └── database.py     # SQLite operations
+
+└── utils/              # Utilities
+
+    └── embeddings.py   # Vector embeddings
+
+```
+
+ 
+
+### Documentation
+
+- `OLLAMA_INTEGRATION_GUIDE.md` - How to use Ollama
+
+- `SECURITY_SYSTEM_GUIDE.md` - Security features
+
+- `EMERGENCY_MODE_SPEC.md` - Traffic stop protection
+
+- `WEB_APP_README.md` - Web interface guide
+
+- `COMPLETE_JARVIS_BUNDLE.txt` - All files in one document
+
+ 
+
+## Installation (From Scratch)
+
+ 
+
+### Step 1: Create Directory Structure
+
+```powershell
+
+# On your Windows machine
+
+cd D:\
+
+mkdir Watery-Tart-giving-out-Swards
+
+cd Watery-Tart-giving-out-Swards
+
+ 
+
+# Create directories
+
+mkdir jarvis
+
+mkdir jarvis\memory
+
+mkdir jarvis\security
+
+mkdir jarvis\llm
+
+mkdir jarvis\storage
+
+mkdir jarvis\utils
+
+mkdir static
+
+mkdir static\js
+
+mkdir static\css
+
+```
+
+ 
+
+### Step 2: Copy Files
+
+Use the `COMPLETE_JARVIS_BUNDLE.txt` file to copy each file to the correct location.
+
+ 
+
+The bundle shows:
+
+```
+
+################################################################################
+
+# FILE: ./path/to/file.py
+
+################################################################################
+
+<file contents>
+
+```
+
+ 
+
+Copy each file's contents to the matching path in your directory.
+
+ 
+
+### Step 3: Install Dependencies
+
+```powershell
+
+cd D:\Watery-Tart-giving-out-Swards
+
+pip install -r requirements.txt
+
+```
+
+ 
+
+This installs:
+
+- fastapi & uvicorn (web framework)
+
+- sqlalchemy (database)
+
+- sentence-transformers (vector embeddings)
+
+- anthropic (Claude API)
+
+- requests (Ollama communication)
+
+- cryptography, pydantic, python-dateutil, etc.
+
+ 
+
+### Step 4: Start Ollama (Privacy Mode)
+
+```powershell
+
+# In one PowerShell window
+
+ollama serve
+
+```
+
+ 
+
+Leave this running.
+
+ 
+
+### Step 5: Start JARVIS
+
+```powershell
+
+# In another PowerShell window
+
+cd D:\Watery-Tart-giving-out-Swords
+
+python web_app.py
+
+```
+
+ 
+
+### Step 6: Test It
+
+Open browser to:
+
+- **Web Interface:** http://localhost:8000
+
+- **API Docs:** http://localhost:8000/docs
+
+- **Interactive Docs:** http://localhost:8000/redoc
+
+ 
+
+## Quick Tests
+
+ 
+
+### Test 1: Check Status
+
+```bash
+
+curl http://localhost:8000/api/health
+
+```
+
+ 
+
+Should return: `{"status":"healthy","version":"0.1.0"}`
+
+ 
+
+### Test 2: Check LLM Providers
+
+```bash
+
+curl http://localhost:8000/api/llm/status
+
+```
+
+ 
+
+Shows Claude and Ollama availability.
+
+ 
+
+### Test 3: Query Ollama
+
+```bash
+
+curl -X POST http://localhost:8000/api/llm/query \
+
+  -H "Content-Type: application/json" \
+
+  -d "{\"prompt\":\"Write hello world in Python\",\"provider\":\"ollama\"}"
+
+```
+
+ 
+
+### Test 4: Record Check-in
+
+```bash
+
+curl -X POST http://localhost:8000/api/checkin \
+
+  -H "Content-Type: application/json" \
+
+  -d "{\"energy\":7,\"mood\":8,\"pain\":2,\"notes\":\"Feeling good today\"}"
+
+```
+
+ 
+
+### Test 5: Get Snapshot
+
+```bash
+
+curl http://localhost:8000/api/snapshot
+
+```
+
+ 
+
+Shows current state, patterns, recommendations.
+
+ 
+
+## Key Features
+
+ 
+
+### 1. Memory System
+
+- **Episodic Memory:** Stores specific events with full context
+
+- **Semantic Memory:** Extracts patterns from episodes
+
+- **Retrieval:** Synthesizes holistic context snapshots
+
+ 
+
+### 2. LLM Providers
+
+- **Claude API:** Fast, smart (requires internet + API key)
+
+- **Ollama (Gemma 2B):** Local, private (2GB RAM, ~5-10s responses)
+
+- **Toggle:** Switch providers via API call
+
+ 
+
+### 3. Security Layer
+
+- **Static Analysis:** Scans commands for dangerous patterns
+
+- **Approval Workflow:** Auto-approve safe, ask for risky, block critical
+
+- **Sandboxed Execution:** Isolated PowerShell environment
+
+- **Audit Logging:** All commands logged to memory
+
+ 
+
+### 4. Voice Interface
+
+- Web Speech API integration
+
+- Push-to-talk support
+
+- Wake word detection (planned)
+
+- Biometric voice auth (planned)
+
+ 
+
+### 5. Emergency Mode (Specified)
+
+- Dual camera recording (front + back)
+
+- Encrypted live streaming
+
+- Emergency contact notification
+
+- GPS tracking
+
+- Tamper-proof storage
+
+ 
+
+## API Endpoints Summary
+
+ 
+
+### Memory
+
+- `POST /api/checkin` - Record daily check-in
+
+- `POST /api/conversation` - Log conversation
+
+- `GET /api/snapshot` - Get current context
+
+- `GET /api/recent` - Recent episodes
+
+- `POST /api/analyze` - Extract patterns
+
+- `POST /api/search` - Semantic search
+
+ 
+
+### LLM
+
+- `POST /api/llm/query` - Query Claude or Ollama
+
+- `POST /api/llm/provider` - Switch provider
+
+- `GET /api/llm/status` - Provider status
+
+ 
+
+### Security
+
+- `POST /api/command/execute` - Execute system command
+
+- `POST /api/command/analyze` - Analyze command safety
+
+- `GET /api/command/history` - Command audit log
+
+ 
+
+### Voice
+
+- `POST /api/voice/command` - Process voice command
+
+ 
+
+### General
+
+- `GET /api/health` - Health check
+
+- `GET /api/stats` - System statistics
+
+ 
+
+## Configuration
+
+ 
+
+### Claude API Key (Optional)
+
+```powershell
+
+[System.Environment]::SetEnvironmentVariable('ANTHROPIC_API_KEY', 'your-key-here', [System.EnvironmentVariableTarget]::User)
+
+```
+
+ 
+
+### Ollama Model Location (Optional)
+
+```powershell
+
+[System.Environment]::SetEnvironmentVariable('OLLAMA_MODELS', 'D:\Ollama\models', [System.EnvironmentVariableTarget]::Machine)
+
+```
+
+ 
+
+## Troubleshooting
+
+ 
+
+### "Module not found" errors
+
+```powershell
+
+pip install -r requirements.txt
+
+```
+
+ 
+
+### "Ollama connection refused"
+
+```powershell
+
+ollama serve
+
+```
+
+ 
+
+### "Model requires more memory"
+
+Close other programs or use Claude API instead of Ollama.
+
+ 
+
+### Files not showing up
+
+Check you're in the right directory:
+
+```powershell
+
+cd D:\Watery-Tart-giving-out-Swords
+
+ls
+
+```
+
+ 
+
+## Next Steps
+
+ 
+
+1. ✅ Get JARVIS running locally
+
+2. ✅ Test both Claude and Ollama
+
+3. ✅ Record some check-ins and conversations
+
+4. ✅ See pattern extraction in action
+
+5. 📋 Build enhanced voice interface
+
+6. 📋 Implement emergency mode
+
+7. 📋 Create Android companion app
+
+ 
+
+## Getting Help
+
+ 
+
+- **Full API Docs:** http://localhost:8000/docs (when running)
+
+- **Security Guide:** See SECURITY_SYSTEM_GUIDE.md
+
+- **Ollama Guide:** See OLLAMA_INTEGRATION_GUIDE.md
+
+- **Emergency Mode:** See EMERGENCY_MODE_SPEC.md
+
+ 
+
+## File Download
+
+ 
+
+If you can access the Claude Code interface:
+
+1. Look for **COMPLETE_JARVIS_BUNDLE.txt** in the file explorer
+
+2. Download it
+
+3. Use it as a reference to recreate all files locally
+
+ 
+
+---
+
+ 
+
+**Your JARVIS is ready to build! 🚀**
