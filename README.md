@@ -163,10 +163,25 @@ This project demonstrates security thinking at multiple levels:
 
 ## Documentation
 
+### Core Documentation
 - [Quick Start Guide](JARVIS_QUICK_START.md) - Getting started
 - [Emergency Mode Specification](EMERGENCY_MODE_COMPLETE_SPEC.md) - Security architecture
 - [Android Implementation Plan](ANDROID_IMPLEMENTATION_PLAN.md) - Mobile companion
 - [Testing Protocol](EMULATOR_TESTING_PROTOCOL.md) - QA procedures
+- [Implementation Roadmap](holistic_claude_assistant_implementation_roadmap.md) - 80-page comprehensive build guide
+
+### Voice Commands (Mobile Integration)
+- [Voice Commands Overview](voice-commands/README.md) - Setup guide for iOS/Android voice integration
+- [iOS Shortcuts](voice-commands/ios-shortcuts.md) - Apple Shortcuts configuration
+- [Android Assistant](voice-commands/android-assistant.md) - Google Assistant integration
+- [Claude Prompts](voice-commands/claude-prompts.md) - Prompt templates for voice commands
+
+#### 5 Core Voice Commands
+1. **"Good morning, Claude"** - Daily context overview and schedule
+2. **"Run job search routine"** - Review opportunities with AI insights
+3. **"Log my energy"** - Quick energy/mood/pain check-in
+4. **"Celebrate today's win"** - Achievement tracking with encouragement
+5. **"What's my schedule?"** - Adaptive schedule based on current energy
 
 ---
 
